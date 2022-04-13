@@ -1,7 +1,9 @@
 import cors from 'cors';
 import express from 'express';
+import { config } from 'dotenv-flow';
+config();
 
-import { router } from './router'; // eslint-disable-line
+import { router } from './router';
 
 const app = express();
 
