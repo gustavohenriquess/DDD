@@ -1,0 +1,30 @@
+{
+  "name": "ddd",
+  "version": "1.0.0",
+  "description": "DDD example",
+  "main": "index.js",
+  "repository": "https://github.com/gustavohenriquess/DDD.git",
+  "author": "Gustavo Henrique <gustavo._henrique@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.6.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "typescript": "^4.6.3"
+  }
+}
