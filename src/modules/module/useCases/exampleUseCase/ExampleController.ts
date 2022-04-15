@@ -7,6 +7,6 @@ export class ExampleController implements Controller {
 	};
 }
 
-interface RequestData {
+type RequestData = {
 	
 }
