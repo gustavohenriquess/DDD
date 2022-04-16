@@ -3,18 +3,17 @@
     "scope": "typescript",
     "prefix": "ddd-controller",
     "body": [
-      "import { Controller } from \"@core/infra/Controller\";",
-      "import { HttpResponse } from \"@core/infra/HttpResponse\";",
+      "import { Controller } from '@core/infra/Controller';",
+      "import { HttpResponse } from '@core/infra/HttpResponse';",
       "",
       "export class ${1:ControllerName} implements Controller {",
-      "\tasync handle(request: RequestData): Promise<HttpResponse>{",
-      "\t\tthrow new Error('Method not implemented')",
-      "\t};",
+      "\tasync handle(request: RequestData): Promise<HttpResponse> {",
+      "\t\tthrow new Error('Method not implemented');",
+      "\t}",
       "}",
       "",
-      "type RequestData = {",
-      "\t",
-      "}"
+      "type RequestData = any;",
+      ""
     ]
   }
 }
