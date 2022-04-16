@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "yarn compile && NODE_ENV=production node dist/infra/http/server.js",
-    "start:dev": "NODE_ENV=development tsnd --respawn src/infra/http/server.ts --node-env=production",
+    "start:dev": "NODE_ENV=development tsnd --respawn src/infra/http/server.ts",
     "watch": "tsc -w",
     "compile": "tsc"
   },
