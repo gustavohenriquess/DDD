@@ -1,9 +1,9 @@
 import express from 'express';
-import { v1Router } from './v1';
+import { RouterCore } from '../../../modules/core/infra/routes';
 
 const router = express.Router();
 
-router.use('/api/v1', v1Router);
+router.use('/', RouterCore);
 
 // All routes go here
 

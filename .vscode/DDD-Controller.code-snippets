@@ -6,7 +6,7 @@
       "import { Controller } from '@core/infra/Controller';",
       "import { HttpResponse } from '@core/infra/HttpResponse';",
       "",
-      "export class ${1:ControllerName} implements Controller {",
+      "export class ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/} implements Controller {",
       "\tasync handle(request: RequestData): Promise<HttpResponse> {",
       "\t\tthrow new Error('Method not implemented');",
       "\t}",

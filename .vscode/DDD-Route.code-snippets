@@ -1,0 +1,16 @@
+{
+  "DDD-Route": {
+    "scope": "typescript",
+    "prefix": "ddd-route",
+    "body": [
+      "import express from 'express'",
+      "import { adaptRoute } from '@core/infra/adapters/ExpressRouteAdapter'",
+      "",
+      "const Router = express.Router()",
+      "",
+      "Router.get('/', adaptRoute(YOUR_CONTROLLER_HERE))",
+      "",
+      "export { Router }"
+    ]
+  }
+}
