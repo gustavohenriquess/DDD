@@ -1,8 +1,8 @@
 import { app } from './app';
 import { MakeLogStartFileUseCase } from '../../modules/core/useCases/StartFile/MakeLogStartFile';
-const makeLog = new MakeLogStartFileUseCase();
 
 const port = process.env.PORT || 3000;
+const makeLog = new MakeLogStartFileUseCase();
 
 makeLog.execute({ filePath: './startArt.txt', fileType: 'utf-8' });
 
