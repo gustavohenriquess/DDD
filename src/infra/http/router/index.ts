@@ -1,5 +1,5 @@
 import express from 'express';
-import { RouterCore } from '../../../modules/core/infra/routes';
+import { RouterCore } from '@modules/core/infra/routes';
 
 const router = express.Router();
 

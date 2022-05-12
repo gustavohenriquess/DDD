@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "yarn compile && NODE_ENV=production node dist/infra/http/server.js",
-    "start:dev": "NODE_ENV=development tsnd --respawn src/infra/http/server.ts",
+    "start:dev": "NODE_ENV=development tsnd -r tsconfig-paths/register src/infra/http/server.ts",
     "watch": "tsc -w",
     "compile": "tsc"
   },
@@ -30,7 +30,8 @@
     "husky": "^7.0.4",
     "prettier": "^2.6.2",
     "prisma": "^3.14.0",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^4.0.0"
   },
   "config": {
     "commitizen": {

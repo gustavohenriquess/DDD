@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { Controller } from '../../../../core/infra/Controller';
-import { HttpResponse, fail, ok } from '../../../../core/infra/HttpResponse';
+import { Controller } from '@core/infra/Controller';
+import { HttpResponse, fail, ok } from '@core/infra/HttpResponse';
 import { StartFileRequest } from 'modules/core/dtos';
 
 export class ReturnStartFileController implements Controller {

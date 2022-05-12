@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { StartFileProps } from 'modules/core/dtos';
+import { StartFileProps } from '@modules/core/dtos';
 
 export class MakeLogStartFileUseCase {
   execute(props: StartFileProps) {
