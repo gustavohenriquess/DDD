@@ -15,7 +15,15 @@
 
 - [Implementando Domain-Driven Design - Vaughn Vernon](https://www.amazon.com.br/Implementando-Domain-Driven-design-Vernon/dp/8576089521/ref=pd_sbs_sccl_6/144-5534853-6406169?pd_rd_w=OuUf0&pf_rd_p=1eb83ecb-3d38-4c15-9700-c733345d3c82&pf_rd_r=9TZABDK9H0Y2YVMSE9MN&pd_rd_r=d0b15ca6-ffa2-4a2e-9de4-6c0c7bed63cb&pd_rd_wg=xYRSI&pd_rd_i=8576089521&psc=1)
 
+- [Arquitetura limpa: O guia do artesão para estrutura e design de software - Robert C. Martin](https://www.amazon.com.br/Arquitetura-Limpa-Artes%C3%A3o-Estrutura-Software/dp/8550804606/ref=sr_1_1?keywords=arquitetura+limpa&qid=1653314570&s=books&sprefix=arquitetur%2Cstripbooks%2C202&sr=1-1&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9)
+
 ##
+
+### Folder Structure
+
+Router -> ControllerFactory -> Repository
+Router -> ControllerFactory -> useCase(Repository) -> Domain(User) -> ObjectValue(Name) -> Repository
+Router -> ControllerFactory -> useCaseController(useCase) -> useCase
 
 ## Architecture Design
 

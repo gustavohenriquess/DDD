@@ -1,0 +1,20 @@
+{
+  "DDD-Controller": {
+    "scope": "typescript",
+    "prefix": "ddd-domain",
+    "body": [
+      "import { Entity } from '@core/domain/Entity';",
+      "",
+      "interface I${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}Props {",
+      "",
+      "}",
+      "",
+      "export class ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/} extends Entity<I${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}Props> {",
+      "  private constructor(props: I${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}Props, id?: string) {",
+      "    super(props, id);",
+      "  }",
+      "",
+      "}"
+    ]
+  }
+}

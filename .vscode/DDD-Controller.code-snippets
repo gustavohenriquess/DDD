@@ -4,16 +4,19 @@
     "prefix": "ddd-controller",
     "body": [
       "import { Controller } from '@core/infra/Controller';",
-      "import { HttpResponse } from '@core/infra/HttpResponse';",
+      "import { HttpResponse, fail, ok } from '@core/infra/HttpResponse';",
+      "import { Props } from '../../dtos';",
       "",
       "export class ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/} implements Controller {",
-      "\tasync handle(request: RequestData): Promise<HttpResponse> {",
-      "\t\tthrow new Error('Method not implemented');",
+      "\tasync handle(request: Props): Promise<HttpResponse> {",
+      "\t\ttry {",
+      "\t\t\treturn ok();",
+      "\t\t} catch (err) {",
+      "\t\t\treturn fail(err as Error);",
+      "\t\t}",
       "\t}",
       "}",
       "",
-      "type RequestData = any;",
-      ""
     ]
   }
 }
