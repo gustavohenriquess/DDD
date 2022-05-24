@@ -1,5 +1,5 @@
 import cors from 'cors';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { config } from 'dotenv-flow';
 config();
 
@@ -20,5 +20,12 @@ app.use(
 );
 
 app.use(router);
+
+app.use((err: Error, request: Request, response: Response) => {
+  return response.status(500).json({
+    status: 'error',
+    message: `Internal server error - ${err.message}`,
+  });
+});
 
 export { app };

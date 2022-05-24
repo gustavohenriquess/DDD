@@ -1,6 +1,6 @@
 import express from 'express';
 import { adaptRoute } from '@core/infra/adapters/ExpressRouteAdapter';
-import { ReturnStartFileControllerFactory } from '../../factories/controllers/returnStartFileController';
+import { ReturnStartFileControllerFactory } from '../../factories/controllers/ReturnStartFileController';
 
 const RouterCore = express.Router();
 

@@ -28,3 +28,36 @@ Router -> ControllerFactory -> useCaseController(useCase) -> useCase
 ## Architecture Design
 
 ![DDD Architecture](/assets/ddd.jpg)
+
+## Object Values 
+- measure
+- quantifies
+- describe
+
+## TO-DO List Features 
+```
+- List:
+  - Create
+  - Update
+  - Delete
+
+- item:
+  - Create
+  - Update
+  - Delete
+
+- Domains:
+  - List:
+    - title                     (255) Text              - Mandatory   - ObjectValue
+    - short Description         (255) Text              -             - ObjectValue
+    - createdAt                 (date) date-time        - Mandatory
+    - updatedAt                 (date) date-time        - Mandatory
+
+  - Item:
+    - title                     (255) Text              - Mandatory   - ObjectValue
+    - Description               (4000) Text             -             - ObjectValue
+    - forecastDate              (date) date-time        -             - EntityRule
+    - done                      (True/false) Boolean    - Mandatory
+    - createdAt                 (date) date-time        - Mandatory
+    - updatedAt                 (date) date-time        - Mandatory
+```

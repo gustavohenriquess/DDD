@@ -1,5 +1,5 @@
 import { app } from './app';
-import { MakeLogStartFileUseCase } from '@modules/core/useCases/StartFile/MakeLogStartFile';
+import { MakeLogStartFileUseCase } from '@modules/core/useCases/MakeLogStartFile/MakeLogStartFile';
 
 const port = process.env.PORT || 3000;
 const makeLog = new MakeLogStartFileUseCase();
