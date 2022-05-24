@@ -4,6 +4,7 @@
     "prefix": "ddd-domain",
     "body": [
       "import { Entity } from '@core/domain/Entity';",
+      "import { Either, right } from '@core/logic/Either';",
       "",
       "interface I${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}Props {",
       "",
@@ -14,6 +15,11 @@
       "    super(props, id);",
       "  }",
       "",
+      "  static create(props: I${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}Props, id?: string): Either<ERRORS_HERE, ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}>  {",
+      "    const ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/} = new ${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/}(props, id);",
+      "",
+      "    return right(${TM_DIRECTORY/.*[\\\\|\\/]+(.*)/$1/});",
+      "  }",
       "}"
     ]
   }
