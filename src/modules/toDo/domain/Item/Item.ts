@@ -16,6 +16,30 @@ interface IItemProps {
 }
 
 export class Item extends Entity<IItemProps> {
+  get title() {
+    return this.props.title;
+  }
+
+  get description() {
+    return this.props.description;
+  }
+
+  get forecastDate() {
+    return this.props.forecastDate;
+  }
+
+  get done() {
+    return this.props.done;
+  }
+
+  get createdAt() {
+    return this.props.createdAt;
+  }
+
+  get updatedAt() {
+    return this.props.updatedAt;
+  }
+
   private constructor(props: IItemProps, id?: string) {
     super(props, id);
   }

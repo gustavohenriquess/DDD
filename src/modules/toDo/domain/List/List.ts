@@ -15,6 +15,22 @@ interface IListProps {
 }
 
 export class List extends Entity<IListProps> {
+  get title() {
+    return this.props.title;
+  }
+
+  get description() {
+    return this.props.description;
+  }
+
+  get createdAt() {
+    return this.props.createdAt;
+  }
+
+  get updatedAt() {
+    return this.props.updatedAt;
+  }
+
   private constructor(props: IListProps, id?: string) {
     super(props, id);
   }
