@@ -4,12 +4,12 @@ import { ItemMapper } from '../../mappers/ItemMapper';
 import { IItemsRepository } from '../IItemsRepository';
 
 export class PrismaItemsRepository implements IItemsRepository {
-  async getAll(): Promise<Item[]> {
-    return await prisma.item.findMany();
+  getAll(): Promise<Item[]> {
+    throw new Error('Method not implemented.');
   }
 
-  async getById(id: string): Promise<Item> {
-    return await prisma.item.findOne({ where: { id } });
+  getById(id: string): Promise<Item> {
+    throw new Error(`Method not implemented. ${id}`);
   }
 
   async save(item: Item): Promise<void> {

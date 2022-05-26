@@ -60,4 +60,21 @@ Router -> ControllerFactory -> useCaseController(useCase) -> useCase
     - done                      (True/false) Boolean    - Mandatory
     - createdAt                 (date) date-time        - Mandatory
     - updatedAt                 (date) date-time        - Mandatory
+
+
+- UseCases:
+  - List
+    Create List
+    Update List
+    Delete List
+    Get    List
+    Get    Lists
+
+  - Item
+    - Create Item
+    - Update Item
+    - Delete Item 
+    - Get    Item
+    - Get    Items
+    - Change Done Item
 ```

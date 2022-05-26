@@ -10,8 +10,8 @@ import { Title } from './objectValues/Title';
 interface IListProps {
   title: Title;
   description: Description;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export class List extends Entity<IListProps> {

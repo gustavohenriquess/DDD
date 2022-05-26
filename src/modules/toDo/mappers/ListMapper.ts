@@ -5,6 +5,7 @@ export class ListMapper {
     return {
       id: list.id,
       title: list.title.value,
+      description: list.description.value,
       createdAt: list.createdAt,
       updatedAt: list.updatedAt,
     };

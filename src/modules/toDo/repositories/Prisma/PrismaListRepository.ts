@@ -4,12 +4,12 @@ import { ListMapper } from '../../mappers/ListMapper';
 import { IListRepository } from '../IListRepository';
 
 export class PrismaListRepository implements IListRepository {
-  async getAll(): Promise<List[]> {
-    return await prisma.list.findMany();
+  getAll(): Promise<List[]> {
+    throw new Error('Method not implemented.');
   }
 
-  async getById(id: string): Promise<List> {
-    return await prisma.list.findOne({ where: { id } });
+  getById(id: string): Promise<List> {
+    throw new Error(`Method not implemented. ${id}`);
   }
 
   async save(list: List): Promise<void> {

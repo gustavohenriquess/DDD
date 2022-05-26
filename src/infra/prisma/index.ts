@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
 interface configProps {
-  log?: string[];
+  log?: ['query'];
 }
 
 const config: configProps = {};

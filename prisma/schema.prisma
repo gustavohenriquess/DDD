@@ -13,8 +13,8 @@ model List {
 
   title       String
   description String
-  createdAt   DateTime
-  updatedAt   DateTime
+  createdAt   DateTime?
+  updatedAt   DateTime?
 
   @@map("lists")
 }
@@ -26,9 +26,9 @@ model Item {
   title        String
   description  String
   done         Boolean
-  forecastDate DateTime
-  createdAt    DateTime
-  updatedAt    DateTime
+  forecastDate DateTime?
+  createdAt    DateTime?
+  updatedAt    DateTime?
 
   @@map("items")
 }
