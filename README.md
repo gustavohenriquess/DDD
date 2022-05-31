@@ -19,11 +19,32 @@
 
 ##
 
-### Folder Structure
+### Creation Order
 
-Router -> ControllerFactory -> Repository
-Router -> ControllerFactory -> useCase(Repository) -> Domain(User) -> ObjectValue(Name) -> Repository
-Router -> ControllerFactory -> useCaseController(useCase) -> useCase
+- [] Repository Interface
+- [] Errors
+- [] Object Value
+  - Uses Errors
+- [] Domain
+  - Uses Object Value
+  - Uses Errors
+- [] Mappers
+  - Domain
+- [] Repository (ORM)
+  - Uses Repository Interface
+  - Uses Mapper
+- [] Use Case
+  - Uses Domain
+  - Uses Repository Interface
+  - Uses Errors
+- [] Use Case Controller
+  - Uses Use Case
+- [] Controller Factory
+  - Uses Repository (ORM)
+  - Uses Use Case
+  - Uses Use Case Controller
+- [] Router
+  - Use Controller Factory
 
 ## Architecture Design
 
