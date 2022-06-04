@@ -10,6 +10,7 @@ import { Title } from './objectValues/Title';
 interface IListProps {
   title: Title;
   description: Description;
+  isActive: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -21,6 +22,10 @@ export class List extends Entity<IListProps> {
 
   get description() {
     return this.props.description;
+  }
+
+  get isActive(): boolean {
+    return this.props.isActive;
   }
 
   get createdAt() {
@@ -43,6 +48,7 @@ export class List extends Entity<IListProps> {
       {
         ...props,
         description: props.description ?? '',
+        isActive: props.isActive ?? true,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

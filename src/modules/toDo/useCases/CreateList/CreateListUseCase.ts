@@ -10,6 +10,7 @@ import { InvalidTitleError } from '@modules/toDo/domain/List/errors/InvalidTitle
 type ListRequest = {
   title: string;
   description: string;
+  isActive: boolean;
 };
 
 type CreateUserResponse = Either<
@@ -22,6 +23,7 @@ export class CreateListUseCase {
   async execute({
     title,
     description,
+    isActive,
   }: ListRequest): Promise<CreateUserResponse> {
     const titleOrError = Title.create(title);
     const descriptionOrError = Description.create(description);
@@ -37,6 +39,7 @@ export class CreateListUseCase {
     const ListOrError = List.create({
       title: titleOrError.value,
       description: descriptionOrError.value,
+      isActive: isActive,
     });
 
     if (ListOrError.isLeft()) {

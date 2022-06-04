@@ -10,6 +10,7 @@ import { CreateListUseCase } from './CreateListUseCase';
 type RequestType = {
   title: string;
   description: string;
+  isActive: boolean;
 };
 
 export class CreateListController implements Controller {
@@ -17,9 +18,13 @@ export class CreateListController implements Controller {
 
   async handle(request: RequestType): Promise<HttpResponse> {
     try {
-      const { title, description } = request;
+      const { title, description, isActive } = request;
 
-      const result = await this._createList.execute({ title, description });
+      const result = await this._createList.execute({
+        title,
+        description,
+        isActive,
+      });
 
       if (result.isLeft()) {
         const error = result.value;

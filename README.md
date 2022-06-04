@@ -17,17 +17,21 @@
 
 - [Arquitetura limpa: O guia do artesão para estrutura e design de software - Robert C. Martin](https://www.amazon.com.br/Arquitetura-Limpa-Artes%C3%A3o-Estrutura-Software/dp/8550804606/ref=sr_1_1?keywords=arquitetura+limpa&qid=1653314570&s=books&sprefix=arquitetur%2Cstripbooks%2C202&sr=1-1&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9)
 
+### Repositories
+- https://github.com/diego3g/umbriel
+
 ##
 
 ### Creation Order
 
-- [ ] Repository Interface
 - [ ] Errors
 - [ ] Object Value
   - Uses Errors
 - [ ] Domain
   - Uses Object Value
   - Uses Errors
+- [ ] Repository Interface-
+  - Uses Domain
 - [ ] Mappers
   - Domain
 - [ ] Repository (ORM)
@@ -71,6 +75,7 @@
   - List:
     - title                     (255) Text              - Mandatory   - ObjectValue
     - short Description         (255) Text              -             - ObjectValue
+    - isActive                  (True/false) Boolean    - Mandatory
     - createdAt                 (date) date-time        - Mandatory
     - updatedAt                 (date) date-time        - Mandatory
 
