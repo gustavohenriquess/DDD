@@ -6,9 +6,25 @@
   "repository": "https://github.com/gustavohenriquess/DDD.git",
   "author": "Gustavo Henrique <gustavo._henrique@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "yarn compile && NODE_ENV=production node dist/infra/http/server.js",
+    "start:dev": "NODE_ENV=development tsnd -r tsconfig-paths/register src/infra/http/server.ts",
+    "watch": "tsc -w",
+    "compile": "tsc",
+    "postgres:start": "docker run --name postgres -e \"POSTGRES_PASSWORD=Postgres2022!\" -p 5432:5432 -d postgres",
+    "postgres:stop": "docker stop postgres",
+    "postgres:ip": "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' postgres",
+    "pgAdmin:start": "docker run --name pgadmin -p 15432:80 -e \"PGADMIN_DEFAULT_EMAIL=pgadmin@hotmail.com\" -e \"PGADMIN_DEFAULT_PASSWORD=PgAdmin2022!\" -d dpage/pgadmin4",
+    "pgAdmin:stop": "docker stop pgadmin"
+  },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv-flow": "^3.2.0",
+    "@types/express": "^4.17.13",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
     "commitizen": "^4.2.4",
@@ -17,7 +33,10 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "prisma": "^3.14.0",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^4.0.0"
   },
   "config": {
     "commitizen": {
@@ -25,6 +44,12 @@
     }
   },
   "dependencies": {
-    "typescript": "^4.6.3"
+    "@prisma/client": "^3.14.0",
+    "cors": "^2.8.5",
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "typescript": "^4.6.3",
+    "uuid": "^8.3.2"
   }
 }
