@@ -8,8 +8,16 @@ export class PrismaListRepository implements IListRepository {
     throw new Error('Method not implemented.');
   }
 
-  getById(id: string): Promise<List> {
-    throw new Error(`Method not implemented. ${id}`);
+  async getById(id: string): Promise<List | null> {
+    const listDB = await prisma.list.findFirst({ where: { id } });
+
+    if (!listDB) {
+      return null;
+    }
+
+    const list = ListMapper.toDomain(listDB);
+
+    return list;
   }
 
   async save(list: List): Promise<void> {
