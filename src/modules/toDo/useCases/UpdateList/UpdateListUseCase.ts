@@ -34,7 +34,7 @@ export class UpdateListUseCase {
       return left(new ListNotFoundError(id));
     }
 
-    const titleOrError = Title.create(title);
+    const titleOrError = Title.update(title);
     const descriptionOrError = Description.create(description);
 
     if (titleOrError.isLeft()) {
@@ -50,6 +50,7 @@ export class UpdateListUseCase {
       isActive,
     });
 
+    await this._listRepository.save(list);
     return right(list);
   }
 }

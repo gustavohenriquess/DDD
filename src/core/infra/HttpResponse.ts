@@ -17,6 +17,12 @@ export function created(): HttpResponse {
   };
 }
 
+export function noContent(): HttpResponse {
+  return {
+    statusCode: 204,
+    body: undefined,
+  };
+}
 export function clientError(error: Error): HttpResponse {
   return {
     statusCode: 400,

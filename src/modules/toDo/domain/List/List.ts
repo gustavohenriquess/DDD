@@ -49,8 +49,8 @@ export class List extends Entity<IListProps> {
         ...props,
         description: props.description ?? '',
         isActive: props.isActive ?? true,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: props.createdAt ?? new Date(),
+        updatedAt: props.updatedAt ?? new Date(),
       },
       id,
     );

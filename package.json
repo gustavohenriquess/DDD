@@ -11,7 +11,12 @@
     "start": "yarn compile && NODE_ENV=production node dist/infra/http/server.js",
     "start:dev": "NODE_ENV=development tsnd -r tsconfig-paths/register src/infra/http/server.ts",
     "watch": "tsc -w",
-    "compile": "tsc"
+    "compile": "tsc",
+    "postgres:start": "docker run --name postgres -e \"POSTGRES_PASSWORD=Postgres2022!\" -p 5432:5432 -d postgres",
+    "postgres:stop": "docker stop postgres",
+    "postgres:ip": "docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' postgres",
+    "pgAdmin:start": "docker run --name pgadmin -p 15432:80 -e \"PGADMIN_DEFAULT_EMAIL=pgadmin@hotmail.com\" -e \"PGADMIN_DEFAULT_PASSWORD=PgAdmin2022!\" -d dpage/pgadmin4",
+    "pgAdmin:stop": "docker stop pgadmin"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
