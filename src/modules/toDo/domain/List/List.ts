@@ -65,6 +65,11 @@ export class List extends Entity<IListProps> {
     this.setUpdatedAt();
   }
 
+  public updateTitle(title: Title) {
+    this.setTitle(title);
+    this.setUpdatedAt();
+  }
+
   private setTitle(title: Title) {
     this.props.title = title;
   }
