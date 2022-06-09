@@ -5,8 +5,12 @@ import { ListMapper } from '../../mappers/ListMapper';
 import { IListRepository } from '../IListRepository';
 
 export class PrismaListRepository implements IListRepository {
-  getAll(): Promise<List[]> {
-    throw new Error('Method not implemented.');
+  async getAll(): Promise<ListTypeDTO[]> {
+    const lists = await prisma.list.findMany();
+
+    lists.map((list) => ListMapper.toDTO(list));
+
+    return lists;
   }
 
   async getByIdDTO(id: string): Promise<ListTypeDTO | null> {
