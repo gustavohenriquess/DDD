@@ -6,7 +6,7 @@ import { ListTypeDTO } from '../dtos/list';
 type ListDB = {
   id: string;
   title: string;
-  description: string;
+  description: string | null;
   isActive: boolean;
   createdAt: Date | null;
   updatedAt: Date | null;
@@ -25,7 +25,7 @@ export class ListMapper {
 
   static toDomain(data: ListDB): List {
     const titleOrError = Title.create(data.title);
-    const descriptionOrError = Description.create(data.description);
+    const descriptionOrError = Description.create(data.description ?? '');
 
     if (titleOrError.isLeft()) {
       throw new Error('Invalid title');
