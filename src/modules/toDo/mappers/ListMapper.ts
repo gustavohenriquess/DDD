@@ -1,6 +1,7 @@
 import { List } from '../domain/List/List';
 import { Description } from '../domain/List/objectValues/Description';
 import { Title } from '../domain/List/objectValues/Title';
+import { ListTypeDTO } from '../dtos/list';
 
 type ListDB = {
   id: string;
@@ -50,5 +51,15 @@ export class ListMapper {
     }
 
     return ListOrError.value;
+  }
+  static toDTO(list: ListDB): ListTypeDTO {
+    return {
+      id: list.id,
+      title: list.title,
+      description: list.description,
+      isActive: list.isActive,
+      createdAt: new Date(list.createdAt ?? ''),
+      updatedAt: list.updatedAt,
+    };
   }
 }
