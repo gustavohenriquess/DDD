@@ -12,7 +12,7 @@ model List {
   id String @id @default(uuid())
 
   title       String
-  description String
+  description String?
   isActive    Boolean   @default(true)
   createdAt   DateTime?
   updatedAt   DateTime?
@@ -25,7 +25,7 @@ model Item {
   id String @id @default(uuid())
 
   title        String
-  description  String
+  description  String?
   done         Boolean
   forecastDate DateTime?
   createdAt    DateTime?
