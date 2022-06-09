@@ -1,11 +1,24 @@
 import { prisma } from '@infra/prisma';
 import { List } from '@modules/toDo/domain/List/List';
+import { ListTypeDTO } from '@modules/toDo/dtos/list';
 import { ListMapper } from '../../mappers/ListMapper';
 import { IListRepository } from '../IListRepository';
 
 export class PrismaListRepository implements IListRepository {
   getAll(): Promise<List[]> {
     throw new Error('Method not implemented.');
+  }
+
+  async getByIdDTO(id: string): Promise<ListTypeDTO | null> {
+    const listDB = await prisma.list.findFirst({ where: { id } });
+
+    if (!listDB) {
+      return null;
+    }
+
+    const list = ListMapper.toDTO(listDB);
+
+    return list;
   }
 
   async getById(id: string): Promise<List | null> {
