@@ -5,24 +5,23 @@ import {
   clientError,
   noContent,
 } from '@core/infra/HttpResponse';
-import { ChangeListTitleUseCase } from './changeListTitleUseCase';
+import { ChangeListDescriptionUseCase } from './ChangeListDescriptionUseCase';
 
 type RequestType = {
   id: string;
-  title: string;
   description: string;
-  isActive: boolean;
 };
-export class ChangeListTitleController implements Controller {
-  constructor(private _changeListTitle: ChangeListTitleUseCase) {}
+
+export class ChangeListDescriptionController implements Controller {
+  constructor(private _changeListDescription: ChangeListDescriptionUseCase) {}
 
   async handle(request: RequestType): Promise<HttpResponse> {
     try {
-      const { id, title } = request;
+      const { id, description } = request;
 
-      const result = await this._changeListTitle.execute({
+      const result = await this._changeListDescription.execute({
         id,
-        title,
+        description,
       });
 
       if (result.isLeft()) {
