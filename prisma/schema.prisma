@@ -17,6 +17,7 @@ model List {
   createdAt   DateTime?
   updatedAt   DateTime?
 
+  Item Item[]
   @@map("lists")
 }
 
@@ -27,6 +28,9 @@ model Item {
   title        String
   description  String?
   done         Boolean
+  order        Int
+  listId       String
+  List         List      @relation(fields: [listId], references: [id])
   forecastDate DateTime?
   createdAt    DateTime?
   updatedAt    DateTime?
