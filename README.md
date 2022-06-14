@@ -90,15 +90,21 @@
 
 - UseCases:
   - List
-    Create List
-    Update List
-    Delete List
-    Get    List
-    Get    Lists
+    - Create List
+    - Update List
+    - Update Title
+    - Update Description
+    - Update Active
+    - Delete List
+    - Get    List
+    - Get    Lists
 
   - Item
     - Create Item
     - Update Item
+    - Update Title
+    - Update Description
+    - Update Active
     - Delete Item 
     - Get    Item
     - Get    Items
