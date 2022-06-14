@@ -75,6 +75,11 @@ export class List extends Entity<IListProps> {
     this.setUpdatedAt();
   }
 
+  public updateIsActive(isActive: boolean) {
+    this.setIsActive(isActive);
+    this.setUpdatedAt();
+  }
+
   private setTitle(title: Title) {
     this.props.title = title;
   }
