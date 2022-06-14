@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "items" ALTER COLUMN "done" SET DEFAULT false,
+ALTER COLUMN "order" DROP NOT NULL;
