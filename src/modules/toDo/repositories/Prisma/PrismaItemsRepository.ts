@@ -3,7 +3,7 @@ import { Item } from '@modules/toDo/domain/Item/Item';
 import { ItemMapper } from '../../mappers/ItemMapper';
 import { IItemsRepository } from '../IItemsRepository';
 
-export class PrismaItemsRepository implements IItemsRepository {
+export class PrismaItemRepository implements IItemsRepository {
   getAll(): Promise<Item[]> {
     throw new Error('Method not implemented.');
   }
@@ -25,6 +25,18 @@ export class PrismaItemsRepository implements IItemsRepository {
     const data = await ItemMapper.toPersistence(item);
 
     await prisma.item.create({ data });
+  }
+
+  async getNextOrder(listId: string): Promise<number> {
+    const item = await prisma.item.findFirst({
+      where: { listId },
+      orderBy: { order: 'desc' },
+    });
+
+    if (!item) return 0;
+
+    const nextOrder = item.order! + 1 || 0;
+    return nextOrder;
   }
 
   async delete(id: string): Promise<void> {

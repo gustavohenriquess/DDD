@@ -6,4 +6,5 @@ export interface IItemsRepository {
   save(item: Item): Promise<void>;
   create(item: Item): Promise<void>;
   delete(id: string): Promise<void>;
+  getNextOrder(listId: string): Promise<number>;
 }
