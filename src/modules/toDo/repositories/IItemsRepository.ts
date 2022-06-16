@@ -1,7 +1,8 @@
 import { Item } from '../domain/Item/Item';
+import { ItemTypeDTO } from '../dtos/item';
 
 export interface IItemsRepository {
-  getAll(): Promise<Item[]>;
+  getAll(listId: string): Promise<ItemTypeDTO[]>;
   getById(id: string): Promise<Item>;
   save(item: Item): Promise<void>;
   create(item: Item): Promise<void>;

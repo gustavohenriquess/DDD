@@ -3,11 +3,11 @@ import { HttpResponse, fail, ok } from '@core/infra/HttpResponse';
 import { GetAllListsUseCase } from './GetAllListsUseCase';
 
 export class GetAllListsController implements Controller {
-  constructor(private _getListById: GetAllListsUseCase) {}
+  constructor(private _getAllLists: GetAllListsUseCase) {}
 
   async handle(): Promise<HttpResponse> {
     try {
-      const result = await this._getListById.execute();
+      const result = await this._getAllLists.execute();
 
       return ok(result);
     } catch (err) {

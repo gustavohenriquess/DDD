@@ -9,6 +9,7 @@ import { ChangeListTitleControllerFactory } from '@modules/toDo/factories/contro
 import { ChangeListDescriptionControllerFactory } from '@modules/toDo/factories/controllers/ChangeListDescriptionController';
 import { ChangeListIsActiveControllerFactory } from '@modules/toDo/factories/controllers/ChangeListIsActiveController';
 import { CreateItemControllerFactory } from '@modules/toDo/factories/controllers/Item/CreateItemController';
+import { GetAllItemsControllerFactory } from '@modules/toDo/factories/controllers/Item/GetAllItemsController';
 
 const toDoRouter = express.Router();
 
@@ -31,5 +32,6 @@ toDoRouter.put(
 toDoRouter.delete('/list/:id', adaptRoute(DeleteListControllerFactory()));
 
 toDoRouter.post('/item/:listId', adaptRoute(CreateItemControllerFactory()));
+toDoRouter.get('/item/:listId', adaptRoute(GetAllItemsControllerFactory()));
 
 export { toDoRouter };

@@ -13,7 +13,7 @@ type ItemRequest = {
   forecastDate: Date;
 };
 
-type CreateUserResponse = Either<
+type CreateItemResponse = Either<
   InvalidTitleError | InvalidDescriptionError,
   Item
 >;
@@ -25,7 +25,7 @@ export class CreateItemUseCase {
     description,
     forecastDate,
     listId,
-  }: ItemRequest): Promise<CreateUserResponse> {
+  }: ItemRequest): Promise<CreateItemResponse> {
     const titleOrError = Title.create(title);
     const descriptionOrError = Description.create(description);
 
