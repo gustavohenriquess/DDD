@@ -13,7 +13,7 @@ export class Description {
   }
 
   static validate(description: string): boolean {
-    if (!description || description.trim().length > 4000) {
+    if (description && description.trim().length > 4000) {
       return false;
     }
 

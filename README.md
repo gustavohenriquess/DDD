@@ -83,6 +83,7 @@
     - title                     (255) Text              - Mandatory   - ObjectValue
     - Description               (4000) Text             -             - ObjectValue
     - forecastDate              (date) date-time        -             - EntityRule
+    - order                     Int                     -
     - done                      (True/false) Boolean    - Mandatory
     - createdAt                 (date) date-time        - Mandatory
     - updatedAt                 (date) date-time        - Mandatory

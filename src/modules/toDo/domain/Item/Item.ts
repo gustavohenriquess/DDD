@@ -9,10 +9,12 @@ import { Title } from './objectValues/Title';
 interface IItemProps {
   title: Title;
   description: Description;
-  forecastDate?: Date;
-  done: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  order: number;
+  done?: boolean;
+  listId: string;
+  forecastDate: Date | null;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
 }
 
 export class Item extends Entity<IItemProps> {
@@ -22,6 +24,14 @@ export class Item extends Entity<IItemProps> {
 
   get description() {
     return this.props.description;
+  }
+
+  get order() {
+    return this.props.order;
+  }
+
+  get listId() {
+    return this.props.listId;
   }
 
   get forecastDate() {
@@ -59,7 +69,7 @@ export class Item extends Entity<IItemProps> {
     InvalidTitleError | InvalidDescriptionError | InvalidForecastDateError,
     Item
   > {
-    if (!Item.validateForecastDate(props)) {
+    if (props.forecastDate && !Item.validateForecastDate(props)) {
       return left(new InvalidForecastDateError(props.forecastDate));
     }
 
@@ -67,7 +77,9 @@ export class Item extends Entity<IItemProps> {
       {
         ...props,
         description: props.description ?? '',
+        order: props.order,
         done: props.done ?? false,
+        forecastDate: props.forecastDate ?? null,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

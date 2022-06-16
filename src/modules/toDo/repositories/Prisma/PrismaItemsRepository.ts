@@ -1,11 +1,18 @@
 import { prisma } from '@infra/prisma';
 import { Item } from '@modules/toDo/domain/Item/Item';
+import { ItemTypeDTO } from '@modules/toDo/dtos/item';
 import { ItemMapper } from '../../mappers/ItemMapper';
 import { IItemsRepository } from '../IItemsRepository';
 
-export class PrismaItemsRepository implements IItemsRepository {
-  getAll(): Promise<Item[]> {
-    throw new Error('Method not implemented.');
+export class PrismaItemRepository implements IItemsRepository {
+  async getAll(listId: string): Promise<ItemTypeDTO[]> {
+    const items = await prisma.item.findMany({
+      where: { listId },
+    });
+
+    items.map((item) => ItemMapper.toDTO(item));
+
+    return items;
   }
 
   getById(id: string): Promise<Item> {
@@ -25,6 +32,18 @@ export class PrismaItemsRepository implements IItemsRepository {
     const data = await ItemMapper.toPersistence(item);
 
     await prisma.item.create({ data });
+  }
+
+  async getNextOrder(listId: string): Promise<number> {
+    const item = await prisma.item.findFirst({
+      where: { listId },
+      orderBy: { order: 'desc' },
+    });
+
+    if (!item) return 0;
+
+    const nextOrder = item.order! + 1 || 0;
+    return nextOrder;
   }
 
   async delete(id: string): Promise<void> {

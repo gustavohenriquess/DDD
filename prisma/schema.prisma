@@ -27,8 +27,8 @@ model Item {
 
   title        String
   description  String?
-  done         Boolean
-  order        Int
+  done         Boolean   @default(false)
+  order        Int?
   listId       String
   List         List      @relation(fields: [listId], references: [id])
   forecastDate DateTime?
