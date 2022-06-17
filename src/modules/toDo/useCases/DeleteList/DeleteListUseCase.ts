@@ -6,12 +6,12 @@ type ListRequest = {
   id: string;
 };
 
-type UpdateUserResponse = Either<ListNotFoundError | Error, null>;
+type ListResponse = Either<ListNotFoundError | Error, null>;
 
 export class DeleteListUseCase {
   constructor(private _listRepository: IListRepository) {}
 
-  async execute({ id }: ListRequest): Promise<UpdateUserResponse> {
+  async execute({ id }: ListRequest): Promise<ListResponse> {
     const list = await this._listRepository.getById(id);
 
     if (!list) {
