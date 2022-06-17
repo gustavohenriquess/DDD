@@ -5,7 +5,7 @@ import { GetItemByIdUseCase } from '@modules/toDo/useCases/Item/GetItemById/GetI
 
 export function GetItemByIdControllerFactory(): Controller {
   const prismaItemRepository = new PrismaItemRepository();
-  const getAllItemsUseCase = new GetItemByIdUseCase(prismaItemRepository);
+  const GetItemById = new GetItemByIdUseCase(prismaItemRepository);
 
-  return new GetItemByIdController(getAllItemsUseCase);
+  return new GetItemByIdController(GetItemById);
 }
