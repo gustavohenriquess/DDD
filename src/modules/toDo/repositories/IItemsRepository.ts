@@ -3,7 +3,7 @@ import { ItemTypeDTO } from '../dtos/item';
 
 export interface IItemsRepository {
   getAll(listId: string): Promise<ItemTypeDTO[]>;
-  getById(id: string): Promise<Item>;
+  getById(id: string, listId: string): Promise<ItemTypeDTO | null>;
   save(item: Item): Promise<void>;
   create(item: Item): Promise<void>;
   delete(id: string): Promise<void>;

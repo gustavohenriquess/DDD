@@ -5,11 +5,12 @@ import { UpdateListControllerFactory } from '@modules/toDo/factories/controllers
 import { DeleteListControllerFactory } from '@modules/toDo/factories/controllers/DeleteListControllerFactory';
 import { GetListByIdControllerFactory } from '@modules/toDo/factories/controllers/GetListByIdControllerFactory';
 import { GetAllListsControllerFactory } from '@modules/toDo/factories/controllers/GetAllListsControllerFactory';
-import { ChangeListTitleControllerFactory } from '@modules/toDo/factories/controllers/ChangeListTitleController';
-import { ChangeListDescriptionControllerFactory } from '@modules/toDo/factories/controllers/ChangeListDescriptionController';
-import { ChangeListIsActiveControllerFactory } from '@modules/toDo/factories/controllers/ChangeListIsActiveController';
-import { CreateItemControllerFactory } from '@modules/toDo/factories/controllers/Item/CreateItemController';
-import { GetAllItemsControllerFactory } from '@modules/toDo/factories/controllers/Item/GetAllItemsController';
+import { ChangeListTitleControllerFactory } from '@modules/toDo/factories/controllers/ChangeListTitleControllerFactory';
+import { ChangeListDescriptionControllerFactory } from '@modules/toDo/factories/controllers/ChangeListDescriptionControllerFactory';
+import { ChangeListIsActiveControllerFactory } from '@modules/toDo/factories/controllers/ChangeListIsActiveControllerFactory';
+import { CreateItemControllerFactory } from '@modules/toDo/factories/controllers/Item/CreateItemControllerFactory';
+import { GetAllItemsControllerFactory } from '@modules/toDo/factories/controllers/Item/GetAllItemsControllerFactory';
+import { GetItemByIdControllerFactory } from '@modules/toDo/factories/controllers/Item/GetItemByIdControllerFactory';
 
 const toDoRouter = express.Router();
 
@@ -33,5 +34,6 @@ toDoRouter.delete('/list/:id', adaptRoute(DeleteListControllerFactory()));
 
 toDoRouter.post('/item/:listId', adaptRoute(CreateItemControllerFactory()));
 toDoRouter.get('/item/:listId', adaptRoute(GetAllItemsControllerFactory()));
+toDoRouter.get('/item/:listId/:id', adaptRoute(GetItemByIdControllerFactory()));
 
 export { toDoRouter };

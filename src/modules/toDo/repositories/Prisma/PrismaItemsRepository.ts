@@ -15,8 +15,14 @@ export class PrismaItemRepository implements IItemsRepository {
     return items;
   }
 
-  getById(id: string): Promise<Item> {
-    throw new Error(`Method not implemented. ${id}`);
+  async getById(id: string, listId: string): Promise<ItemTypeDTO | null> {
+    const item = await prisma.item.findFirst({ where: { id, listId } });
+
+    if (!item) {
+      return null;
+    }
+
+    return ItemMapper.toDTO(item);
   }
 
   async save(item: Item): Promise<void> {
