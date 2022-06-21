@@ -22,6 +22,7 @@ export class Title {
 
   static validateForUpdate(title: string): boolean {
     if (
+      !title ||
       (title && title.trim().length === 0) ||
       (title && title.trim().length > 255)
     ) {
