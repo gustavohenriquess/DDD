@@ -1,21 +1,21 @@
 import { Controller } from '@core/infra/Controller';
 import { HttpResponse, fail, noContent } from '@core/infra/HttpResponse';
-import { ChangeDoneUseCase } from './changeDoneUseCase';
+import { ChangeTitleUseCase } from './changeTitleUseCase';
 
 type RequestType = {
   id: string;
   listId: string;
-  done: boolean;
+  title: string;
 };
 
-export class ChangeDoneController implements Controller {
-  constructor(private _changeDone: ChangeDoneUseCase) {}
+export class ChangeTitleController implements Controller {
+  constructor(private _changeTitle: ChangeTitleUseCase) {}
 
   async handle(request: RequestType): Promise<HttpResponse> {
     try {
-      const { id, listId, done } = request;
+      const { id, listId, title } = request;
 
-      await this._changeDone.execute({ id, listId, done });
+      await this._changeTitle.execute({ id, listId, title });
 
       return noContent();
     } catch (err) {

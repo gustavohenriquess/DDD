@@ -80,8 +80,8 @@ export class Item extends Entity<IItemProps> {
         order: props.order,
         done: props.done ?? false,
         forecastDate: props.forecastDate ?? null,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: props.createdAt ?? new Date(),
+        updatedAt: props.updatedAt ?? new Date(),
       },
       id,
     );
@@ -94,8 +94,17 @@ export class Item extends Entity<IItemProps> {
     this.setUpdatedAt();
   }
 
+  public updateTitle(title: Title) {
+    this.setTitle(title);
+    this.setUpdatedAt();
+  }
+
   private setDone(done: boolean) {
     this.props.done = done;
+  }
+
+  private setTitle(title: Title) {
+    this.props.title = title;
   }
 
   private setUpdatedAt() {
