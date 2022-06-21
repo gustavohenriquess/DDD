@@ -8,6 +8,7 @@ export class PrismaItemRepository implements IItemsRepository {
   async getAll(listId: string): Promise<ItemTypeDTO[]> {
     const items = await prisma.item.findMany({
       where: { listId },
+      orderBy: { order: 'asc' },
     });
 
     items.map((item) => ItemMapper.toDTO(item));
