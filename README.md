@@ -105,7 +105,8 @@
     - Update Item
     - Update Title
     - Update Description
-    - Update Active
+    - Update ForecastDate
+    - Update Order
     - Delete Item 
     - Get    Item
     - Get    Items
