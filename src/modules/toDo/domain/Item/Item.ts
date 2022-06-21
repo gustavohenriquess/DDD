@@ -88,4 +88,17 @@ export class Item extends Entity<IItemProps> {
 
     return right(item);
   }
+
+  public updateDone(done: boolean) {
+    this.setDone(done);
+    this.setUpdatedAt();
+  }
+
+  private setDone(done: boolean) {
+    this.props.done = done;
+  }
+
+  private setUpdatedAt() {
+    this.props.updatedAt = new Date();
+  }
 }
