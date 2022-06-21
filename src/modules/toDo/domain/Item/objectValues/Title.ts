@@ -20,8 +20,27 @@ export class Title {
     return true;
   }
 
+  static validateForUpdate(title: string): boolean {
+    if (
+      (title && title.trim().length === 0) ||
+      (title && title.trim().length > 255)
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
   static create(title: string): Either<InvalidTitleError, Title> {
     if (!Title.validate(title)) {
+      return left(new InvalidTitleError(title));
+    }
+
+    return right(new Title(title));
+  }
+
+  static update(title: string): Either<InvalidTitleError, Title> {
+    if (!Title.validateForUpdate(title)) {
       return left(new InvalidTitleError(title));
     }
 
