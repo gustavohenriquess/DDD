@@ -99,12 +99,21 @@ export class Item extends Entity<IItemProps> {
     this.setUpdatedAt();
   }
 
+  public updateDescription(description: Description) {
+    this.setDescription(description);
+    this.setUpdatedAt();
+  }
+
   private setDone(done: boolean) {
     this.props.done = done;
   }
 
   private setTitle(title: Title) {
     this.props.title = title;
+  }
+
+  private setDescription(description: Description) {
+    this.props.description = description;
   }
 
   private setUpdatedAt() {
