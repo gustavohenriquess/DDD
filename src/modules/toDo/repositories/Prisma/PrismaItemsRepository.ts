@@ -25,6 +25,15 @@ export class PrismaItemRepository implements IItemsRepository {
     return ItemMapper.toDTO(item);
   }
 
+  async getByIdDomain(id: string, listId: string): Promise<Item | null> {
+    const item = await prisma.item.findFirst({ where: { id, listId } });
+
+    if (!item) {
+      return null;
+    }
+    return ItemMapper.toDomain(item);
+  }
+
   async save(item: Item): Promise<void> {
     const data = await ItemMapper.toPersistence(item);
 

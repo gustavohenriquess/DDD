@@ -12,6 +12,7 @@ import { CreateItemControllerFactory } from '@modules/toDo/factories/controllers
 import { GetAllItemsControllerFactory } from '@modules/toDo/factories/controllers/Item/GetAllItemsControllerFactory';
 import { GetItemByIdControllerFactory } from '@modules/toDo/factories/controllers/Item/GetItemByIdControllerFactory';
 import { DeleteItemControllerFactory } from '@modules/toDo/factories/controllers/Item/DeleteItemControllerFactory';
+import { ChangeDoneControllerFactory } from '@modules/toDo/factories/controllers/Item/ChangeDoneControllerFactory';
 
 const toDoRouter = express.Router();
 
@@ -39,6 +40,10 @@ toDoRouter.get('/item/:listId/:id', adaptRoute(GetItemByIdControllerFactory()));
 toDoRouter.delete(
   '/item/:listId/:id',
   adaptRoute(DeleteItemControllerFactory()),
+);
+toDoRouter.put(
+  '/item/:listId/:id/done',
+  adaptRoute(ChangeDoneControllerFactory()),
 );
 
 export { toDoRouter };
