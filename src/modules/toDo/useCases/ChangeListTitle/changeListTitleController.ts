@@ -5,7 +5,7 @@ import {
   clientError,
   noContent,
 } from '@core/infra/HttpResponse';
-import { ChangeListTitleUseCase } from './changeListTitleUseCase';
+import { ChangeListTitleUseCase } from './ChangeListTitleUseCase';
 
 type RequestType = {
   id: string;

@@ -1,6 +1,6 @@
 import { Controller } from '@core/infra/Controller';
 import { HttpResponse, fail, noContent } from '@core/infra/HttpResponse';
-import { ChangeDoneUseCase } from './changeDoneUseCase';
+import { ChangeDoneUseCase } from './ChangeDoneUseCase';
 
 type RequestType = {
   id: string;
