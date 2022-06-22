@@ -15,6 +15,7 @@ import { DeleteItemControllerFactory } from '@modules/toDo/factories/controllers
 import { ChangeDoneControllerFactory } from '@modules/toDo/factories/controllers/Item/ChangeDoneControllerFactory';
 import { ChangeTitleControllerFactory } from '@modules/toDo/factories/controllers/Item/ChangeTitleControllerFactory';
 import { ChangeDescriptionControllerFactory } from '@modules/toDo/factories/controllers/Item/ChangeDescriptionControllerFactory';
+import { ChangeForecastDateControllerFactory } from '@modules/toDo/factories/controllers/Item/ChangeForecastDateControllerFactory';
 import { ChangeOrderControllerFactory } from '@modules/toDo/factories/controllers/Item/ChangeOrderControllerFactory';
 
 const toDoRouter = express.Router();
@@ -55,6 +56,10 @@ toDoRouter.put(
 toDoRouter.put(
   '/item/:listId/:id/description',
   adaptRoute(ChangeDescriptionControllerFactory()),
+);
+toDoRouter.put(
+  '/item/:listId/:id/forecast',
+  adaptRoute(ChangeForecastDateControllerFactory()),
 );
 toDoRouter.put(
   '/item/:listId/:id/order',
