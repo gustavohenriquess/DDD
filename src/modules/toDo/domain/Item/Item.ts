@@ -104,6 +104,19 @@ export class Item extends Entity<IItemProps> {
     this.setUpdatedAt();
   }
 
+  public updateForecastDate(forecastDate: Date | null) {
+    this.setForecastDate(forecastDate);
+    this.setUpdatedAt();
+  }
+
+  public validForecastDate(forecastDate: Date | null): boolean {
+    if (forecastDate && forecastDate < new Date()) {
+      return false;
+    }
+
+    return true;
+  }
+
   private setDone(done: boolean) {
     this.props.done = done;
   }
@@ -114,6 +127,10 @@ export class Item extends Entity<IItemProps> {
 
   private setDescription(description: Description) {
     this.props.description = description;
+  }
+
+  private setForecastDate(forecastDate: Date | null) {
+    this.props.forecastDate = forecastDate;
   }
 
   private setUpdatedAt() {
