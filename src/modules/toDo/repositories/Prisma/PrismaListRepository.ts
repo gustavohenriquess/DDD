@@ -8,9 +8,7 @@ export class PrismaListRepository implements IListRepository {
   async getAll(): Promise<ListTypeDTO[]> {
     const lists = await prisma.list.findMany();
 
-    lists.map((list) => ListMapper.toDTO(list));
-
-    return lists;
+    return lists.map((list) => ListMapper.toDTO(list));
   }
 
   async getByIdDTO(id: string): Promise<ListTypeDTO | null> {

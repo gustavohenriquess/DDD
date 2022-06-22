@@ -11,9 +11,21 @@ export class PrismaItemRepository implements IItemsRepository {
       orderBy: { order: 'asc' },
     });
 
-    items.map((item) => ItemMapper.toDTO(item));
+    return items.map((item) => ItemMapper.toDTO(item));
+  }
 
-    return items;
+  async getItemsToReorder(listId: string, order: number): Promise<Item[]> {
+    const items = await prisma.item.findMany({
+      where: {
+        listId,
+        order: {
+          gte: order,
+        },
+      },
+      orderBy: { order: 'asc' },
+    });
+
+    return items.map((item) => ItemMapper.toDomain(item));
   }
 
   async getById(id: string, listId: string): Promise<ItemTypeDTO | null> {

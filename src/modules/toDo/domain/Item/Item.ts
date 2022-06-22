@@ -104,6 +104,11 @@ export class Item extends Entity<IItemProps> {
     this.setUpdatedAt();
   }
 
+  updateOrder(order: number) {
+    this.setOrder(order);
+    this.setUpdatedAt();
+  }
+
   private setDone(done: boolean) {
     this.props.done = done;
   }
@@ -114,6 +119,10 @@ export class Item extends Entity<IItemProps> {
 
   private setDescription(description: Description) {
     this.props.description = description;
+  }
+
+  private setOrder(order: number) {
+    this.props.order = order;
   }
 
   private setUpdatedAt() {
