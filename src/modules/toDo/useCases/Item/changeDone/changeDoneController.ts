@@ -1,5 +1,10 @@
 import { Controller } from '@core/infra/Controller';
-import { HttpResponse, fail, noContent } from '@core/infra/HttpResponse';
+import {
+  HttpResponse,
+  fail,
+  noContent,
+  clientError,
+} from '@core/infra/HttpResponse';
 import { ChangeDoneUseCase } from './ChangeDoneUseCase';
 
 type RequestType = {
@@ -15,9 +20,15 @@ export class ChangeDoneController implements Controller {
     try {
       const { id, listId, done } = request;
 
-      await this._changeDone.execute({ id, listId, done });
+      const result = await this._changeDone.execute({ id, listId, done });
 
-      return noContent();
+      if (result.isLeft()) {
+        const error = result.value;
+
+        return clientError(error);
+      } else {
+        return noContent();
+      }
     } catch (err) {
       return fail(err as Error);
     }
