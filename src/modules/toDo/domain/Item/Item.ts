@@ -117,6 +117,11 @@ export class Item extends Entity<IItemProps> {
     return true;
   }
 
+  updateOrder(order: number) {
+    this.setOrder(order);
+    this.setUpdatedAt();
+  }
+
   private setDone(done: boolean) {
     this.props.done = done;
   }
@@ -131,6 +136,10 @@ export class Item extends Entity<IItemProps> {
 
   private setForecastDate(forecastDate: Date | null) {
     this.props.forecastDate = forecastDate;
+  }
+
+  private setOrder(order: number) {
+    this.props.order = order;
   }
 
   private setUpdatedAt() {
