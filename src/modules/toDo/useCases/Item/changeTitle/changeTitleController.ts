@@ -1,5 +1,10 @@
 import { Controller } from '@core/infra/Controller';
-import { HttpResponse, fail, noContent } from '@core/infra/HttpResponse';
+import {
+  HttpResponse,
+  fail,
+  noContent,
+  clientError,
+} from '@core/infra/HttpResponse';
 import { ChangeTitleUseCase } from './changeTitleUseCase';
 
 type RequestType = {
@@ -15,9 +20,15 @@ export class ChangeTitleController implements Controller {
     try {
       const { id, listId, title } = request;
 
-      await this._changeTitle.execute({ id, listId, title });
+      const result = await this._changeTitle.execute({ id, listId, title });
 
-      return noContent();
+      if (result.isLeft()) {
+        const error = result.value;
+
+        return clientError(error);
+      } else {
+        return noContent();
+      }
     } catch (err) {
       return fail(err as Error);
     }
